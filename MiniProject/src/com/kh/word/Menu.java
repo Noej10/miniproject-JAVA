@@ -1,7 +1,7 @@
 package com.kh.word;
 
 import java.util.Scanner;
-
+//
 public class Menu {
 	private WordController wc;
 	private Scanner sc;

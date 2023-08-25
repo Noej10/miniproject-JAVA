@@ -1,7 +1,7 @@
 package com.kh.word;
 
 public class Word {
-	
+	//
 	private String answer;
 	private String eng;
 	private String kor;

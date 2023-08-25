@@ -1,7 +1,7 @@
 package com.kh.word;
 import java.util.*;
 public class LoginMenu {
-
+//
 	private Scanner sc;
 	private MemberController mc;
 	private ArrayList<Menu> m;
@@ -12,6 +12,8 @@ public class LoginMenu {
 		m = new ArrayList<Menu>();
 	}
 	
+	
+
 	
 	public void loginMain() {
 		boolean isLoop=true;
@@ -24,6 +26,7 @@ public class LoginMenu {
 			System.out.println("9. 프로그램 종료");
 			System.out.println("번호를 선택하세요.");
 			System.out.print("번호 : ");
+			
 			
 				switch(sc.nextInt()) {
 					case 1:{
@@ -43,6 +46,7 @@ public class LoginMenu {
 						System.out.println("잘못 입력하셨습니다. 다시 입력하세요.");
 				}
 			
+			
 		}
 	}
 	
@@ -59,7 +63,7 @@ public class LoginMenu {
 			System.out.println("로그인 실패!");
 		else {
 			System.out.println("로그인 성공!");
-			m.get(menuNum).wordMenu();
+			m.get(menuNum).wordMenu(); 
 		}
 		
 		

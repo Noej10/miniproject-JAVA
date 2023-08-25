@@ -2,7 +2,7 @@ package com.kh.word;
 import java.util.*;
 import java.math.*;
 public class WordController {
-	
+	//
 	private Scanner sc;
 	private ArrayList<Word> arr; 
 	
@@ -11,6 +11,7 @@ public class WordController {
 		
 		sc = new Scanner(System.in);
 		arr = new ArrayList<Word>();
+		
 	}
 	
 	//단어 추가

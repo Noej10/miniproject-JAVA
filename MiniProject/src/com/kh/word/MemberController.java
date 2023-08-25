@@ -1,7 +1,7 @@
 package com.kh.word;
 
 import java.util.*;
-
+//
 public class MemberController {
 	
 	private ArrayList<Member> arr;
