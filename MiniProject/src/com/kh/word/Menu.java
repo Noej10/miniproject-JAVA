@@ -5,7 +5,9 @@ import java.util.Scanner;
 public class Menu {
 	private WordController wc;
 	private Scanner sc;
-	
+	public static final String RED = "\u001B[31m";
+	public static final String EXIT = "\u001B[0m";
+	public static final String GREEN = "\u001B[32m";
 	public Menu() {
 		wc = new WordController();
 		sc = new Scanner(System.in);
@@ -23,6 +25,8 @@ public class Menu {
 			System.out.println("4. 단어 검색");
 			System.out.println("5. 단어 전체 보기");
 			System.out.println("6. 단어 퀴즈");
+			System.out.println("7. 단어장 등록");
+			System.out.println("8. 등록된 단어장 보기");
 			System.out.println("9. 로그아웃");
 			System.out.print("메뉴 번호 : ");
 			
@@ -45,12 +49,18 @@ public class Menu {
 				case 6:{
 					quizMenu();
 				}break;
+				case 7:{
+					wordList();
+				}break;
+				case 8:{
+					showWordList();
+				}break;
 				case 9:{
 					isLoop=false;
-					System.out.println("로그아웃 되었습니다.");
+					System.out.println(GREEN+"로그아웃 되었습니다."+EXIT);
 				}break;
 				default:
-					System.out.print("잘못 입력하셨습니다. 다시 입력해주세요.");
+					System.out.println(RED+"잘못 입력하셨습니다. 다시 입력해주세요."+EXIT);
 			}
 		}
 	}
@@ -91,7 +101,34 @@ public class Menu {
 	}
 	
 	
+	public void wordList() {
+		String userId,listName;
+		
+		System.out.print("등록될 단어장의 이름을 입력하세요. : ");
+		listName=sc.next();
+		System.out.print("표시될 작성자 이름을 입력하세요. : ");
+		userId=sc.next();
+		
+		wc.addWL(userId, listName);
+	}
 	
+	public void showWordList() {
+		int menuNum;
+		wc.showAllWL();
+		System.out.print("확인할 단어장의 번호를 입력하세요. : ");
+		menuNum = sc.nextInt();
+		wc.showChoiceWL(menuNum);
+		System.out.print("해당 단어장으로 퀴즈를 진행하시겠습니까?(Y/N) : ");
+		switch(sc.next()) {
+			case "y":
+			case "Y":{
+				wc.wordQuizWL(menuNum);
+			}break;
+			default:
+				System.out.println(GREEN+"메인 메뉴로 돌아갑니다."+EXIT);
+		}
+		
+	}
 	
 	
 	
@@ -119,10 +156,10 @@ public class Menu {
 				}break;
 				case 9:{
 					isLoop = false;
-					System.out.println("메인 메뉴로 돌아갑니다.");
+					System.out.println(GREEN+"메인 메뉴로 돌아갑니다."+EXIT);
 				}break;
 				default:
-					System.out.println("잘못 입력하셨습니다. 다시 입력해주세요.");
+					System.out.println(RED+"잘못 입력하셨습니다. 다시 입력해주세요."+EXIT);
 			}
 		}
 		
@@ -144,10 +181,10 @@ public class Menu {
 				case "N":
 				case "n":{
 					isLoop = false;
-					System.out.print("메인 메뉴로 돌아갑니다.");
+					System.out.print(GREEN+"메인 메뉴로 돌아갑니다."+EXIT);
 				}break;
 				default:
-					System.out.println("잘못 입력하셨습니다. 다시 입력해주세요.");
+					System.out.println(RED+"잘못 입력하셨습니다. 다시 입력해주세요."+EXIT);
 			}
 		}
 	}

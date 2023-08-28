@@ -2,6 +2,9 @@ package com.kh.word;
 import java.util.*;
 public class LoginMenu {
 //
+	public static final String RED = "\u001B[31m";
+	public static final String EXIT = "\u001B[0m";
+	public static final String GREEN = "\u001B[32m";
 	private Scanner sc;
 	private MemberController mc;
 	private ArrayList<Menu> m;
@@ -40,10 +43,10 @@ public class LoginMenu {
 					}break;
 					case 9:{
 						isLoop=false;
-						System.out.println("프로그램이 종료됩니다.");
+						System.out.println(GREEN+"프로그램이 종료됩니다."+EXIT);
 					}break;
 					default:
-						System.out.println("잘못 입력하셨습니다. 다시 입력하세요.");
+						System.out.println(RED+"잘못 입력하셨습니다. 다시 입력하세요."+EXIT);
 				}
 			
 			
@@ -60,9 +63,9 @@ public class LoginMenu {
 		
 		menuNum=mc.login(id, pw);
 		if(menuNum==-1)
-			System.out.println("로그인 실패!");
+			System.out.println(RED+"로그인 실패!"+EXIT);
 		else {
-			System.out.println("로그인 성공!");
+			System.out.println(GREEN+"로그인 성공!"+EXIT);
 			m.get(menuNum).wordMenu(); 
 		}
 		
@@ -104,10 +107,10 @@ public class LoginMenu {
 					}break;
 					case 9:{
 						isLoop=false;
-						System.out.println("메인 메뉴로 돌아갑니다.");
+						System.out.println(GREEN+"메인 메뉴로 돌아갑니다."+EXIT);
 					}break;
 					default:
-						System.out.println("잘못 입력하셨습니다. 다시 입력하세요.");
+						System.out.println(RED+"잘못 입력하셨습니다. 다시 입력하세요."+EXIT);
 				}
 			
 		}

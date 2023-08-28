@@ -11,6 +11,13 @@ public class MemberController {
 	}
 	
 	public void joinMembership(String id, String pw, String name) {
+		for(int i=0; i<arr.size(); i++) {
+			if(arr.get(i).getId().equals(id)) {
+				System.out.println("중복된 아이디는 사용할 수 없습니다.");
+				return;
+			}
+		}
+		
 		arr.add(new Member(id, pw, name));
 		System.out.println("회원 가입이 정상적으로 완료되었습니다.");
 	}
