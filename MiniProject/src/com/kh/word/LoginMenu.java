@@ -25,7 +25,8 @@ public class LoginMenu {
 			System.out.println("나만의 단어장입니다.");
 			System.out.println("1. 로그인");
 			System.out.println("2. 회원가입");
-			System.out.println("3. 관리자모드");
+			System.out.println("3. 비밀번호 변경");
+			System.out.println("4. 관리자모드");
 			System.out.println("9. 프로그램 종료");
 			System.out.println("번호를 선택하세요.");
 			System.out.print("번호 : ");
@@ -39,6 +40,9 @@ public class LoginMenu {
 						joinMembership();
 					}break;
 					case 3:{
+						changePW();
+					}break;
+					case 4:{
 						managerMod();
 					}break;
 					case 9:{
@@ -68,9 +72,23 @@ public class LoginMenu {
 			System.out.println(GREEN+"로그인 성공!"+EXIT);
 			m.get(menuNum).wordMenu(); 
 		}
+	}
+	
+	
+	//비밀번호 변경 기능 추가
+	public void changePW() {
+		String id,pw;
 		
+		System.out.print("비밀번호를 변경할 아이디를 입력하세요. : ");
+		id = sc.next();
+		System.out.print("변경할 비밀번호를 입력하세요. : ");
+		pw = sc.next();
+		
+		mc.changePW(id,pw);
 		
 	}
+	
+	//id pw 뭐가 틀렸는지 // pw 3번 이상 틀릴경우 id 불린값사용해서 잠금 비밀번호 변경 시 해제
 	
 	public void joinMembership() {
 		String id,pw,name;

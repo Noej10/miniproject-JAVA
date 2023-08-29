@@ -6,6 +6,7 @@ public class Member {
 	private String id;
 	private String pw;
 	private String name;
+	private int failKey=0;
 	private int memberNum;
 	public static int NUM=0;
 	
@@ -14,6 +15,18 @@ public class Member {
 		this.pw = pw;
 		this.name = name;
 		this.memberNum = NUM++;
+	}
+	
+	public int getFailKey() {
+		return this.failKey;
+	}
+	
+	public void resetFailKey() {
+		this.failKey=0;
+	}
+	
+	public void addFailKey() {
+		this.failKey++;
 	}
 	
 	public String getId() {
