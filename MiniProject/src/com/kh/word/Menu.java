@@ -114,20 +114,36 @@ public class Menu {
 	
 	public void showWordList() {
 		int menuNum;
-		wc.showAllWL();
-		System.out.print("확인할 단어장의 번호를 입력하세요. : ");
-		menuNum = sc.nextInt();
-		wc.showChoiceWL(menuNum);
-		System.out.print("해당 단어장으로 퀴즈를 진행하시겠습니까?(Y/N) : ");
-		switch(sc.next()) {
-			case "y":
-			case "Y":{
-				wc.wordQuizWL(menuNum);
-			}break;
-			default:
-				System.out.println(GREEN+"메인 메뉴로 돌아갑니다."+EXIT);
-		}
-		
+			wc.showAllWL();
+			System.out.print("확인할 단어장의 번호를 입력하세요. : ");
+			menuNum = sc.nextInt();
+			wc.showChoiceWL(menuNum);
+			
+			System.out.println("1. 해당 단어장 내 단어장에 추가");
+			System.out.println("2. 해당 단어장으로 퀴즈");
+			System.out.println("다른 숫자 입력 시 메뉴로 돌아갑니다.");
+			System.out.print("번호를 입력하세요.");
+			
+			switch(sc.nextInt()) {
+				case 1:{
+					wc.addWLword(menuNum);
+				}break;
+				case 2:{
+					System.out.print("해당 단어장으로 퀴즈를 진행하시겠습니까?(Y/N) : ");
+					switch(sc.next()) {
+						case "y":
+						case "Y":{
+							wc.wordQuizWL(menuNum);
+						}break;
+						default:
+							System.out.println(GREEN+"메인 메뉴로 돌아갑니다."+EXIT);
+					}
+				}break;
+			
+				default:
+					System.out.println(GREEN+"메인 메뉴로 돌아갑니다."+EXIT);
+					
+			}
 	}
 	
 	
@@ -181,7 +197,7 @@ public class Menu {
 				case "N":
 				case "n":{
 					isLoop = false;
-					System.out.print(GREEN+"메인 메뉴로 돌아갑니다."+EXIT);
+					System.out.println(GREEN+"메인 메뉴로 돌아갑니다."+EXIT);
 				}break;
 				default:
 					System.out.println(RED+"잘못 입력하셨습니다. 다시 입력해주세요."+EXIT);

@@ -70,6 +70,14 @@ public class WordController {
 		
 	}
 	
+	//단어장에 있는 단어 추가
+	public void addWLword(int menuNum) {
+		for(int i=0; i<WL.get(menuNum-1).getWr().size(); i++) {
+		arr.add(new Word(WL.get(menuNum-1).getWr().get(i).getEng(),WL.get(menuNum-1).getWr().get(i).getKor()));
+		}
+		System.out.println("단어장의 단어를 정상적으로 추가했습니다.");
+	}
+	
 	
 	//단어 추가
 	public void addWord(String eng, String kor){
