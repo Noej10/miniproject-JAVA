@@ -50,9 +50,9 @@ public class MemberController {
 	}
 	
 	public void showAllMember() {
-		System.out.println("아이디\t비밀번호\t이름");
+		System.out.println("번호\t아이디\t비밀번호\t이름");
 			for(int i=0; i<arr.size(); i++) {
-				System.out.println(arr.get(i).toString());
+				System.out.println((i+1)+"\t"+arr.get(i).toString());
 			}
 		
 	}
@@ -64,9 +64,15 @@ public class MemberController {
 				arr.get(i).resetFailKey();
 			}else {
 				System.out.println("아이디가 존재하지 않습니다.");
+				break;
 			}
 		}
 		
+	}
+	
+	public void managersReset(int num) {
+		arr.get(num-1).resetFailKey();
+		System.out.println(arr.get(num-1).getId()+"회원의 아이디 잠금이 해제되었습니다.");
 	}
 	
 }

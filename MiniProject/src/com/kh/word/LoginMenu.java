@@ -115,6 +115,7 @@ public class LoginMenu {
 		while(isLoop) {	
 			System.out.println("관리자 모드입니다.");
 			System.out.println("1. 전체 회원 목록 확인");
+			System.out.println("2. 아이디 잠금 해제");
 			System.out.println("9. 관리자 모드 종료");
 			System.out.println("번호를 선택하세요.");
 			System.out.print("번호 : ");
@@ -122,6 +123,13 @@ public class LoginMenu {
 				switch(sc.nextInt()) {
 					case 1:{
 						mc.showAllMember();
+					}break;
+					case 2:{
+						int memberNum;
+						mc.showAllMember();
+						System.out.print("잠금을 해제할 아이디의 번호를 입력하세요. : ");
+						memberNum = sc.nextInt();
+						mc.managersReset(memberNum);
 					}break;
 					case 9:{
 						isLoop=false;
